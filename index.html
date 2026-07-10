@@ -409,7 +409,11 @@ button{cursor:pointer}
 /* PHOTO MODAL — HUD DESIGN */
 #photo-modal{position:fixed;inset:0;z-index:206;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(10px)}
 #photo-modal.open{display:flex}
-.photo-box{position:relative;width:min(420px,92vw);padding:20px 52px 20px 20px;box-sizing:border-box;background:rgba(9,9,9,.98);border-radius:10px;border:1px solid rgba(212,255,0,.12)}
+.photo-box{position:relative;width:min(420px,92vw);padding:30px 20px 20px 20px;box-sizing:border-box;background:rgba(9,9,9,.98);border-radius:10px;border:1px solid rgba(212,255,0,.12)}
+.pm-drag-handle{position:absolute;top:0;left:0;right:0;height:22px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px;cursor:grab;touch-action:none;user-select:none}
+.pm-drag-handle:active{cursor:grabbing}
+.pm-drag-bar{width:36px;height:4px;border-radius:3px;background:rgba(255,255,255,.18);transition:background .15s}
+.pm-drag-handle:hover .pm-drag-bar{background:rgba(255,255,255,.32)}
 .pm-corner{position:absolute;width:18px;height:18px;border-color:var(--neon-green);pointer-events:none;z-index:2}
 .pm-corner.tl{top:-1px;left:-1px;border-top:2px solid;border-left:2px solid;border-radius:10px 0 0 0}
 .pm-corner.tr{top:-1px;right:-1px;border-top:2px solid;border-right:2px solid;border-radius:0 10px 0 0}
@@ -418,27 +422,27 @@ button{cursor:pointer}
 .pm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .pm-sponsor{font-size:10px;letter-spacing:.16em;color:var(--text-muted);font-weight:700;text-transform:uppercase}
 .pm-icons{display:flex;gap:7px;align-items:center}
-.pm-icon-btn{width:34px;height:34px;border-radius:8px;background:transparent;border:1.5px solid var(--border2);color:var(--text-muted);display:grid;place-items:center;cursor:pointer;font-size:15px;transition:all .2s}
-.pm-icon-btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:var(--text)}
-.pm-icon-btn.active{color:#ffd700;border-color:rgba(255,200,0,.5);background:rgba(255,200,0,.08)}
-.pm-close-btn{width:34px;height:34px;border-radius:8px;background:transparent;border:none;color:var(--text-muted);display:grid;place-items:center;cursor:pointer;font-size:16px;transition:color .2s}
+.pm-icon-btn{width:32px;height:32px;border-radius:8px;background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555!important;display:grid;place-items:center;cursor:pointer;font-size:14px;transition:all .2s;box-shadow:none!important}
+.pm-icon-btn:hover{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.2)!important;color:var(--text)!important}
+.pm-icon-btn.active{color:#ffd700!important;border-color:rgba(255,200,0,.5)!important;background:rgba(255,200,0,.08)!important}
+.pm-close-btn{width:32px;height:32px;border-radius:8px;background:transparent;border:none;color:var(--text-muted);display:grid;place-items:center;cursor:pointer;font-size:16px;transition:color .2s}
 .pm-close-btn:hover{color:var(--text)}
-#photo-save-btn{width:34px;height:34px;border-radius:8px;background:transparent;border:1.5px solid var(--border2);color:var(--text-muted);display:grid;place-items:center;cursor:pointer;font-size:15px;transition:all .2s;clip-path:unset!important;-webkit-clip-path:unset!important}
-#photo-save-btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:var(--text)}
-.pm-title{font-weight:900;font-size:20px;line-height:1.25;color:var(--text-primary);margin:0 0 4px;word-break:break-word}
-.pm-addr{font-size:11px;color:var(--text-secondary);line-height:1.4;margin:0 0 6px}
-.pm-desc{font-size:10px;color:var(--text-muted);line-height:1.5;margin:0 0 16px}
-.pm-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:4px}
+#photo-save-btn{width:32px;height:32px;border-radius:8px;background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555!important;display:grid;place-items:center;cursor:pointer;font-size:14px;transition:all .2s;clip-path:unset!important;-webkit-clip-path:unset!important;box-shadow:none!important}
+#photo-save-btn:hover{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.2)!important;color:var(--text)!important}
+.pm-title{font-weight:900;font-size:20px;line-height:1.25;color:var(--text-primary);margin:0 0 4px;word-break:break-word;padding-right:34px}
+.pm-addr{font-size:11px;color:var(--text-secondary);line-height:1.4;margin:0 0 6px;padding-right:34px}
+.pm-desc{font-size:10px;color:var(--text-muted);line-height:1.5;margin:0 0 16px;padding-right:34px}
+.pm-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:4px;padding-right:38px}
 .pm-active{display:flex;align-items:center;gap:6px}
 .pm-active-dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto;background:#4a4d51}
 .pm-active-text{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4a4d51}
-#pm-save-cta{padding:10px 22px;border-radius:6px;border:none;cursor:pointer;background:var(--neon-green);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 4px 0 #86a300,0 6px 8px rgba(0,0,0,.5);font-weight:900;font-size:12px;color:#060606;letter-spacing:.14em;text-transform:uppercase;transform:translateY(0);transition:transform .08s,box-shadow .08s,opacity .2s;flex:0 0 auto}
-#pm-save-cta:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(255,255,255,.3) inset,0 0 0 #86a300,0 2px 3px rgba(0,0,0,.4)}
+#pm-save-cta{padding:7px 16px;border-radius:6px;border:none;cursor:pointer;background:var(--neon-green);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 3px 0 #86a300,0 4px 6px rgba(0,0,0,.5);font-weight:900;font-size:10px;color:#060606;letter-spacing:.12em;text-transform:uppercase;transform:translateY(0);transition:transform .08s,box-shadow .08s,opacity .2s;flex:0 0 auto}
+#pm-save-cta:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 0 0 #86a300,0 1px 2px rgba(0,0,0,.4)}
 #pm-save-cta.disabled{opacity:.35;pointer-events:none;background:#3a3a3a;color:#1a1a1a;box-shadow:none}
-.pm-tags{position:absolute;top:60px;right:-14px;display:flex;flex-direction:column;gap:6px}
-.pm-tag{height:26px;width:14px;border-radius:3px 0 0 3px;cursor:pointer;transition:width .15s,filter .15s;filter:brightness(.7)}
-.pm-tag:hover{width:18px;filter:brightness(1)}
-.pm-tag.active{width:22px;filter:brightness(1);box-shadow:0 0 8px var(--pm-glow,rgba(255,255,255,.4))}
+.pm-tags{position:absolute;top:68px;right:14px;display:flex;flex-direction:column;gap:6px}
+.pm-tag{height:24px;width:12px;border-radius:3px 0 0 3px;cursor:pointer;transition:width .15s,filter .15s,opacity .15s;filter:grayscale(1) brightness(.6);opacity:.55}
+.pm-tag:hover{width:18px;filter:grayscale(.4) brightness(.9);opacity:.85}
+.pm-tag.active{width:22px;filter:grayscale(0) brightness(1);opacity:1;box-shadow:0 0 8px var(--pm-glow,rgba(255,255,255,.4))}
 
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
@@ -729,12 +733,13 @@ button{cursor:pointer}
     <span class="pm-corner bl"></span>
     <span class="pm-corner br"></span>
 
+    <div class="pm-drag-handle" id="pm-drag-handle"><span class="pm-drag-bar"></span></div>
+
     <div class="pm-head">
       <span class="pm-sponsor">PATROCINADO</span>
       <div class="pm-icons">
-        <button class="pm-icon-btn vip" id="photo-vip-btn" title="VIP" style="background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555555!important;box-shadow:none!important">𖣿</button>
-        <button id="photo-save-btn" title="Ver / guardar" style="background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555555!important;box-shadow:none!important">⚿</button>
-        <button class="pm-close-btn" id="photo-x" title="Cerrar">✕</button>
+        <button class="pm-icon-btn vip" id="photo-vip-btn" title="VIP">𖣿</button>
+        <button id="photo-save-btn" title="Ver / guardar"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5C1 1.22386 1.22386 1 1.5 1H12.5C12.7761 1 13 1.22386 13 1.5V14.5C13 14.9319 12.4816 15.1512 12.1739 14.8492L7.34833 10.1129C7.1521 9.92064 6.8479 9.92064 6.65167 10.1129L1.82611 14.8492C1.51839 15.1512 1 14.9319 1 14.5V1.5Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
 
@@ -1354,7 +1359,7 @@ function doDel() {
 function openSaveModal(lng, lat, address = '') {
   pendingPoint = { lng, lat };
   searchConfirmAddress = address || '';
-  $('q-title').value = address || '';
+  $('q-title').value = address ? address.split(',')[0].trim() : '';
   $('save-addr-preview').textContent = address || 'Dirección seleccionada';
   $('save-hero-title').textContent = (settings.name ? `# ${settings.name}` : '# Usuario').slice(0, 42);
   $('save-hero-note').textContent = '"Algún comentario"';
@@ -1706,23 +1711,23 @@ function renderPhotoFlags(existing) {
 function syncPhotoModalState() {
   const dot = $('pm-active-dot');
   const text = $('pm-active-text');
-  const saveBtn = $('photo-save-btn');
   const cta = $('pm-save-cta');
-  if (!dot || !text || !saveBtn || !cta) return;
+  const saveBtn = $('photo-save-btn');
+  if (!dot || !text || !cta || !saveBtn) return;
   if (pmCurrentClass) {
     const m = CLASS_META[pmCurrentClass] || CLASS_META.save;
     const [r,g,b] = hexToRgb(m.c);
     dot.style.background = m.c;
     text.style.color = m.c;
     text.textContent = m.l.toUpperCase();
-    saveBtn.style.cssText = `background:rgba(${r},${g},${b},.08)!important;border:1.5px solid ${m.c}!important;color:${m.c}!important;box-shadow:0 0 12px rgba(${r},${g},${b},.4)!important`;
     cta.classList.remove('disabled');
+    saveBtn.style.cssText = `background:rgba(${r},${g},${b},.08)!important;border:1.5px solid ${m.c}!important;color:${m.c}!important;box-shadow:0 0 10px rgba(${r},${g},${b},.35)!important`;
   } else {
     dot.style.background = '#4a4d51';
     text.style.color = '#4a4d51';
     text.textContent = 'SIN ETIQUETA · OFF';
-    saveBtn.style.cssText = 'background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555555!important;box-shadow:none!important';
     cta.classList.add('disabled');
+    saveBtn.style.cssText = 'background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555!important;box-shadow:none!important';
   }
 }
 
@@ -1737,12 +1742,56 @@ function openPhotoModal(lng, lat, address = '', placeId = null) {
   $('photo-meta').textContent = existing?.notes || '';
   $('photo-vip-btn').classList.toggle('active', !!existing?.vip);
   renderPhotoFlags(existing);
+  resetPhotoModalVisualState();
   $('photo-modal').classList.add('open');
+}
+
+function resetPhotoModalVisualState() {
+  const dot = $('pm-active-dot');
+  const text = $('pm-active-text');
+  const cta = $('pm-save-cta');
+  const saveBtn = $('photo-save-btn');
+  if (!dot || !text || !cta || !saveBtn) return;
+  dot.style.background = '#4a4d51';
+  text.style.color = '#4a4d51';
+  text.textContent = 'SIN ETIQUETA · OFF';
+  cta.classList.add('disabled');
+  saveBtn.style.cssText = 'background:transparent!important;border:1.5px solid rgba(255,255,255,.07)!important;color:#555!important;box-shadow:none!important';
 }
 
 function closePhotoModal() {
   $('photo-modal').classList.remove('open');
   photoPoint = null; photoExistingId = null; pmCurrentClass = null;
+}
+
+function initPhotoDragHandle() {
+  const handle = $('pm-drag-handle');
+  const box = $('pm-box');
+  if (!handle || !box) return;
+  let startY = 0, dy = 0, dragging = false;
+
+  const onDown = (clientY) => { dragging = true; startY = clientY; dy = 0; box.style.transition = 'none'; };
+  const onMove = (clientY) => {
+    if (!dragging) return;
+    dy = Math.max(0, clientY - startY);
+    box.style.transform = `translateY(${dy}px)`;
+    box.style.opacity = String(1 - Math.min(dy / 220, .6));
+  };
+  const onUp = () => {
+    if (!dragging) return;
+    dragging = false;
+    box.style.transition = 'transform .2s ease, opacity .2s ease';
+    if (dy > 70) {
+      closePhotoModal();
+    }
+    box.style.transform = '';
+    box.style.opacity = '';
+  };
+
+  handle.addEventListener('pointerdown', (e) => { e.preventDefault(); onDown(e.clientY); handle.setPointerCapture(e.pointerId); });
+  handle.addEventListener('pointermove', (e) => onMove(e.clientY));
+  handle.addEventListener('pointerup', () => { const wasTap = dy < 6; onUp(); if (wasTap) closePhotoModal(); });
+  handle.addEventListener('pointercancel', onUp);
 }
 
 function photoSetFlag(classification) {
@@ -1752,9 +1801,11 @@ function photoSetFlag(classification) {
     if (p) {
       p.classification = classification;
       p.color = CLASS_META[classification]?.c || p.color;
+      p.vip = false;
       saveAll(); renderAll();
       toast(`✓ ${CLASS_META[classification]?.l || classification}`);
       pmCurrentClass = classification;
+      $('photo-vip-btn').classList.remove('active');
       renderPhotoFlags(p);
       return;
     }
@@ -1762,6 +1813,7 @@ function photoSetFlag(classification) {
   pendingClass = classification;
   pendingColor = CLASS_META[classification]?.c || COLORS[0].v;
   pmCurrentClass = classification;
+  $('photo-vip-btn').classList.remove('active');
   renderPhotoFlags({ classification });
 }
 
@@ -1778,7 +1830,18 @@ function photoToSave() {
 function photoToggleVip() {
   if (photoExistingId) {
     const p = places.find(x => x.id === photoExistingId);
-    if (p) { p.vip = !p.vip; saveAll(); renderAll(); toast(p.vip ? '𖣿 Agregado a VIP' : 'Quitado de VIP'); $('photo-vip-btn').classList.toggle('active', !!p.vip); return; }
+    if (p) {
+      p.vip = !p.vip;
+      saveAll(); renderAll();
+      toast(p.vip ? '𖣿 Agregado a VIP' : 'Quitado de VIP');
+      $('photo-vip-btn').classList.toggle('active', !!p.vip);
+      if (p.vip) {
+        pmCurrentClass = null;
+        resetPhotoModalVisualState();
+        document.querySelectorAll('#photo-flags .pm-tag').forEach(t => t.classList.remove('active'));
+      }
+      return;
+    }
   }
   toast('Guarda primero este lugar para marcarlo como VIP');
 }
@@ -2086,7 +2149,7 @@ function bindAll() {
   });
 
   // ─── PHOTO MODAL ───
-  $('photo-x').addEventListener('click', closePhotoModal);
+  initPhotoDragHandle();
   $('photo-save-btn').addEventListener('click', photoToSave);
   $('photo-vip-btn').addEventListener('click', photoToggleVip);
   $('pm-save-cta').addEventListener('click', photoToSave);
